@@ -37,7 +37,8 @@ Room
 -price
 
 Reservation
--date
+-start date
+-end date
 -guest_id
 -room_id
 
