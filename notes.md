@@ -19,7 +19,7 @@ Rating
 Amenities
 -belongs to room
 
-User Stories
+Guest Stories
 -guest should be able to book and cancel reservation with number of rooms 
 -rate their room
 -add or remove additional amenities 
@@ -35,6 +35,7 @@ Guest
 Room
 -name
 -price
+-quantity
 
 Reservation
 -start date
