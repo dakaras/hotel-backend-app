@@ -10,7 +10,9 @@ class Api::V1::RoomsController < ApplicationController
 
   # GET /rooms/1
   def show
-    render json: @room
+    room_json = RoomSerializer.new(@room).serialized_json
+    render json:  room_json
+    # render json: @room
   end
 
   # POST /rooms
