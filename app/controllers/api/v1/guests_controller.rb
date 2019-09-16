@@ -4,13 +4,13 @@ class Api::V1::GuestsController < ApplicationController
   # GET /guests
   def index
     @guests = Guest.all
-
     render json: @guests
   end
 
   # GET /guests/1
   def show
-    render json: @guest
+    guest_json = GuestSerializer.new(@guest).serialized_json
+    render json:  guest_json
   end
 
   # POST /guests
