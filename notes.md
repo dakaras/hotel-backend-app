@@ -12,13 +12,6 @@ Reservation
 -belongs to room
 -belongs to guest
 
-Rating
--belongs to guest
--belongs to room
-
-Amenities
--belongs to room
-
 Guest Stories
 -guest should be able to book and cancel reservation with number of rooms 
 -rate their room
@@ -35,20 +28,10 @@ Guest
 Room
 -name
 -price
--quantity
 
 Reservation
 -start date
 -end date
 -guest_id
 -room_id
-
-Amenities
--name
--price
--room_id
-
-Rating
--stars
--guest_id
--room_id
+-ratings

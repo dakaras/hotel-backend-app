@@ -16,5 +16,5 @@ double3 = Room.create(name:"Double Room", price: 200)
 suite = Room.create(name:"Suite", price: 300)
 executive = Room.create(name:"Executive King", price: 400)
 
-mary_reservation = mary.reservations.create(start_date:"10/9/19", end_date:"10/11/19", room_id:1)
-daniel_reservation = daniel.reservations.create(start_date:"10/1/19", end_date:"10/20/19", room_id:6)
+mary_reservation = mary.reservations.create(start_date:"10/9/19", end_date:"10/11/19", room_id:1, rating:nil)
+daniel_reservation = daniel.reservations.create(start_date:"10/1/19", end_date:"10/20/19", room_id:6, rating:nil)

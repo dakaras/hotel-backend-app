@@ -10,28 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_204247) do
-
-  create_table "amenities", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
-    t.string "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_09_18_145440) do
 
   create_table "guests", force: :cascade do |t|
     t.string "name"
     t.string "username"
     t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.integer "stars"
-    t.string "room_id"
-    t.string "guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_204247) do
     t.string "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
   end
 
   create_table "rooms", force: :cascade do |t|
