@@ -10,7 +10,8 @@ class Api::V1::ReservationsController < ApplicationController
 
   # GET /reservations/1
   def show
-    render json: @reservation
+    reservation_json = ReservationSerializer.new(@reservation).serialized_json
+    render json:  reservation_json
   end
 
   # POST /reservations
