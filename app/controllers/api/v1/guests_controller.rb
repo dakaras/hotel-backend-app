@@ -46,6 +46,6 @@ class Api::V1::GuestsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def guest_params
-      params.require(:guest).permit(:name, :username, :password_digest)
+      params.require(:guest).permit(:name, :username, :password)
     end
 end
