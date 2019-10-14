@@ -16,11 +16,14 @@ class Api::V1::GuestsController < ApplicationController
   # POST /guests
   def create
     @guest = Guest.new(guest_params)
-
     if @guest.save
-      render json: @guest, status: :created, location: @guest
+      session[:guest_id] = @guest.id
+      render json: GuestSerializer.new(@guest), status: :created
     else
-      render json: @guest.errors, status: :unprocessable_entity
+      resp = {
+        error: @guest.errors.full_messages.to_sentence
+      }
+      render json: resp, status: :unprocessable_entity
     end
   end
 

@@ -4,12 +4,13 @@ class Api::V1::ReservationsController < ApplicationController
   # GET /reservations
   def index
     if logged_in?
-      @reservations = current_Guest.reservations
+      @reservations = current_guest.reservations
       render json: ReservationSerializer.new(@reservations)
     else
       render json: {
         error: 'Must be logged in to view reservations.'
       }
+    end
   end
 
   # GET /reservations/1

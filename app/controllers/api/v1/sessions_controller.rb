@@ -3,7 +3,7 @@ class Api::V1::SessionsController < ApplicationController
         @guest = Guest.find_by(username: params[:username])
         if @guest && @guest.authenticate(params[:session][:password])
             session[:guest_id] = @guest.id 
-            render json: GuestSerializer.new(@guest) 
+            render json: GuestSerializer.new(@guest), status: :ok
         else
             render json: {error: "Incorrect username or password. Please try again."}
         end
