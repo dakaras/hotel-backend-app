@@ -24,9 +24,12 @@ class Api::V1::ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      render json: @reservation, status: :created
     else
-      render json: @reservation.errors, status: :unprocessable_entity
+      resp = {
+        error: @reservation.errors.full_messages.to_sentence
+      }
+      render json: resp, status: :unprocessable_entity
     end
   end
 
@@ -52,6 +55,6 @@ class Api::V1::ReservationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date, :guest_id, :room_id)
+      params.require(:reservation).permit(:start_date, :end_date, :guest_id, :room_id, :name)
     end
 end
