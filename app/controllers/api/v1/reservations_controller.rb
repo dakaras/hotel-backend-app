@@ -22,9 +22,8 @@ class Api::V1::ReservationsController < ApplicationController
   # POST /reservations
   def create
     @reservation = Reservation.new(reservation_params)
-
     if @reservation.save
-      render json: @reservation, status: :created
+      render json: ReservationSerializer.new(@reservation).serialized_json, status: :created
     else
       resp = {
         error: @reservation.errors.full_messages.to_sentence
@@ -55,6 +54,6 @@ class Api::V1::ReservationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date, :guest_id, :room_id, :name)
+      params.require(:reservation).permit(:start_date, :end_date, :guest_id, :room_id)
     end
 end
