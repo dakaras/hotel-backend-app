@@ -35,7 +35,7 @@ class Api::V1::ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1
   def update
     if @reservation.update(reservation_params)
-      render json: @reservation
+      render json: ReservationSerializer.new(@reservation).serialized_json
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
