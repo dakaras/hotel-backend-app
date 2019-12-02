@@ -34,6 +34,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   # PATCH/PUT /reservations/1
   def update
+    
     if @reservation.update(reservation_params)
       render json: ReservationSerializer.new(@reservation).serialized_json
     else
